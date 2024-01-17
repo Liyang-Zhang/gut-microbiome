@@ -1,0 +1,14 @@
+Changes in module 'nf-core/fastp'
+--- modules/nf-core/fastp/main.nf
++++ modules/nf-core/fastp/main.nf
+@@ -34,6 +34,8 @@
+     // Use single ended for interleaved. Add --interleaved_in in config.
+     if ( task.ext.args?.contains('--interleaved_in') ) {
+         """
++        echo "These are my changes"
++
+         [ ! -f  ${prefix}.fastq.gz ] && ln -sf $reads ${prefix}.fastq.gz
+ 
+         fastp \\
+
+************************************************************

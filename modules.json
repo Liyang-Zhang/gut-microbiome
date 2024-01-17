@@ -7,18 +7,39 @@
                 "nf-core": {
                     "custom/dumpsoftwareversions": {
                         "branch": "master",
-                        "git_sha": "bba7e362e4afead70653f84d8700588ea28d0f9e",
-                        "installed_by": ["modules"]
+                        "git_sha": "8ec825f465b9c17f9d83000022995b4f7de6fe93",
+                        "installed_by": [
+                            "modules"
+                        ]
+                    },
+                    "cutadapt": {
+                        "branch": "master",
+                        "git_sha": "07881e42938b4f0070e864b45d424b01745bc3a4",
+                        "installed_by": [
+                            "modules"
+                        ]
+                    },
+                    "fastp": {
+                        "branch": "master",
+                        "git_sha": "d086322563bdbb08c94bf15a7db58a39ccdb1520",
+                        "installed_by": [
+                            "modules"
+                        ],
+                        "patch": "modules/nf-core/fastp/fastp.diff"
                     },
                     "fastqc": {
                         "branch": "master",
-                        "git_sha": "65ad3e0b9a4099592e1102e92e10455dc661cf53",
-                        "installed_by": ["modules"]
+                        "git_sha": "617777a807a1770f73deb38c80004bac06807eef",
+                        "installed_by": [
+                            "modules"
+                        ]
                     },
                     "multiqc": {
                         "branch": "master",
-                        "git_sha": "4ab13872435962dadc239979554d13709e20bf29",
-                        "installed_by": ["modules"]
+                        "git_sha": "8ec825f465b9c17f9d83000022995b4f7de6fe93",
+                        "installed_by": [
+                            "modules"
+                        ]
                     }
                 }
             }
