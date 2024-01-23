@@ -39,30 +39,59 @@
 > If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with `-profile test` before running the workflow on actual data.
 
 <!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
-     Explain what rows and columns represent. For instance (please edit as appropriate):
+-->
 
-First, prepare a samplesheet with your input data that looks as follows:
+First, prepare the local module environment, it only supports conda now:
+
+```bash
+git checkout dev
+cd conda_env
+conda env create -f gut_microbiome.yaml
+conda activate gut_microbiome # Test if successfully installed
+```
+
+Second, check and change conda env path in the nextflow.config
+
+```
+       process {
+            withName: 'TRIM_ADAPTER' {
+                conda = "<path to miniconda>/envs/gut_microbiome"
+            }
+            withName: 'VSEARCH.*' {
+                conda = "<path to miniconda>/envs/gut_microbiome"
+            }
+            withName: 'QUALITYFILTER' {
+                conda = "<path to miniconda>/envs/gut_microbiome"
+            }
+        }
+```
+
+Third, prepare a samplesheet/manifest with your input data that looks as follows:
 
 `samplesheet.csv`:
 
 ```csv
 sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+CONTROL_REP1,path/to/AEG588A1_S1_L002_R1_001.fastq.gz,path/to/AEG588A1_S1_L002_R2_001.fastq.gz
 ```
 
-Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
+Finally, Prepare a gold reference fasta file for chimera detection, e.g.  
 
--->
+```bash
+wget -c  https://mothur.s3.us-east-2.amazonaws.com/wiki/silva.gold.bacteria.zip
+unzip -p silva.gold.bacteria.zip silva.gold.align | \
+        sed -e "s/[.-]//g" > gold.fasta
+```
 
 Now, you can run the pipeline using:
 
 <!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
 
 ```bash
-nextflow run nf-core/gutmicrobiome \
-   -profile <docker/singularity/.../institute> \
-   --input samplesheet.csv \
-   --outdir <OUTDIR>
+nextflow run main.nf \
+--input path/to/samplesheet.csv \
+--gold_ref path/to/gold.fasta \
+-profile conda --outdir test_results --email your@email.com
 ```
 
 > [!WARNING]
