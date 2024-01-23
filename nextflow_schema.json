@@ -222,9 +222,6 @@
         }
     ],
     "properties": {
-        "fasta": {
-            "type": "string"
-        },
         "r1_primer": {
             "type": "string",
             "default": "GGACTACHVGGGTWTCTAAT"
@@ -241,10 +238,11 @@
             "type": "integer",
             "default": 8
         },
-        "gold_ref": {
-            "type": "string"
-        },
         "map": {
+            "type": "string",
+            "default": "/home/leon/nf-core/gut_microbiome/nf-core-gutmicrobiome/perl/map.pl"
+        },
+        "gold_ref": {
             "type": "string"
         }
     }
