@@ -88,10 +88,12 @@ Now, you can run the pipeline using:
 <!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
 
 ```bash
+# don't use --email if mail is not installed
 nextflow run main.nf \
---input path/to/samplesheet.csv \
---gold_ref path/to/gold.fasta \
--profile conda --outdir test_results --email your@email.com
+  --input path/to/samplesheet.csv \
+  --gold_ref path/to/gold.fasta \
+  -profile conda --outdir test_results \
+  --email your@email.com
 ```
 
 > [!WARNING]
