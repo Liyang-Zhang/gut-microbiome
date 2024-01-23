@@ -13,7 +13,7 @@
 
 ## Introduction
 
-**nf-core/gutmicrobiome** is a bioinformatics pipeline that ...
+**nf-core/gutmicrobiome** is a bioinformatics pipeline that process a batch of 16s RNA sequencing data and generate OTUs table for downstream gut microbiome analysis.
 
 <!-- TODO nf-core:
    Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
@@ -25,8 +25,13 @@
      workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
-1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+1. Trim adapters ([`Cutadapt`](https://cutadapt.readthedocs.io/en/stable/))
+2. Merge R1 and R2
+3. Quality filter
+4. Dereplicate
+5. Merge all dereplicated fasta files
+6. Create OTUs table
+7. Convert format
 
 ## Usage
 
