@@ -54,9 +54,6 @@ Second, check and change conda env path in the nextflow.config
 
 ```
        process {
-            withName: 'TRIM_ADAPTER' {
-                conda = "<path to miniconda>/envs/gut_microbiome"
-            }
             withName: 'VSEARCH.*' {
                 conda = "<path to miniconda>/envs/gut_microbiome"
             }
