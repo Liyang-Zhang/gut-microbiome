@@ -1,4 +1,7 @@
 process VSEARCH_MERGER1R2 {
+
+    conda "${moduleDir}/environment.yml"
+
     input:
     tuple val(sample), path(reads)
 

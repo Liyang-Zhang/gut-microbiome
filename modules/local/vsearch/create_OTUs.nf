@@ -1,4 +1,7 @@
 process VSEARCH_OTUS {
+
+    conda "${moduleDir}/environment.yml"
+
     input:
     path "all.merged.fasta"
 

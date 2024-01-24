@@ -1,5 +1,8 @@
 // Dereplication
 process VSEARCH_DEREPLICATION {
+
+    conda "${moduleDir}/environment.yml"
+
     input:
     tuple val(sample), path(read)
 

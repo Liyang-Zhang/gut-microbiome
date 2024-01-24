@@ -1,0 +1,7 @@
+name: biom-format
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bioconda::biom-format=2.1.7

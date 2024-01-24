@@ -1,5 +1,8 @@
 // Convert to Qiime-compatible format
 process VSEARCH_COMPATIBLE4QIIME2 {
+
+    conda "${moduleDir}/environment.yml"
+
     input:
     tuple path("all.otus.fasta"), path("all.otutab.txt")
 

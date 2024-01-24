@@ -1,4 +1,7 @@
 process QUALITYFILTER {
+
+    conda "${moduleDir}/environment.yml"
+
     input:
     tuple val(sample), path(read)
 

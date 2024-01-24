@@ -29,13 +29,13 @@ log.info logo + paramsSummaryLog(workflow) + citation
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { INPUT_CHECK  } from '../subworkflows/local/input_check'
-include { TRIM_ADAPTER } from '../modules/local/trim_adapters'
-include { VSEARCH_MERGER1R2 } from '../modules/local/merge_r1r2'
-include { QUALITYFILTER } from '../modules/local/quality_filter'
-include { VSEARCH_DEREPLICATION } from '../modules/local/dereplication'
-include { MERGE_DEREPSAMPLES } from '../modules/local/merge_derepsamples'
-include { VSEARCH_OTUS } from '../modules/local/create_OTUs'
-include { VSEARCH_COMPATIBLE4QIIME2 } from '../modules/local/convert_to_qiime2'
+include { TRIM_ADAPTER } from '../modules/local/trim_adapter/trim_adapters'
+include { VSEARCH_MERGER1R2 } from '../modules/local/vsearch/merge_r1r2'
+include { QUALITYFILTER } from '../modules/local/prinseq/quality_filter'
+include { VSEARCH_DEREPLICATION } from '../modules/local/vsearch/dereplication'
+include { MERGE_DEREPSAMPLES } from '../modules/local/vsearch/merge_derepsamples'
+include { VSEARCH_OTUS } from '../modules/local/vsearch/create_OTUs'
+include { VSEARCH_COMPATIBLE4QIIME2 } from '../modules/local/biom/convert_to_qiime2'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
