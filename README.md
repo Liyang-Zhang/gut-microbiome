@@ -41,29 +41,7 @@
 <!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
 -->
 
-First, prepare the local module environment, it only supports conda now:
-
-```bash
-git checkout dev
-cd conda_env
-conda env create -f gut_microbiome.yaml
-conda activate gut_microbiome # Test if successfully installed
-```
-
-Second, check and change conda env path in the nextflow.config
-
-```
-       process {
-            withName: 'VSEARCH.*' {
-                conda = "<path to miniconda>/envs/gut_microbiome"
-            }
-            withName: 'QUALITYFILTER' {
-                conda = "<path to miniconda>/envs/gut_microbiome"
-            }
-        }
-```
-
-Third, prepare a samplesheet/manifest with your input data that looks as follows:
+First, prepare a samplesheet/manifest with your input data that looks as follows:
 
 `samplesheet.csv`:
 
@@ -72,7 +50,7 @@ sample,fastq_1,fastq_2
 CONTROL_REP1,path/to/AEG588A1_S1_L002_R1_001.fastq.gz,path/to/AEG588A1_S1_L002_R2_001.fastq.gz
 ```
 
-Finally, Prepare a gold reference fasta file for chimera detection, e.g.  
+Second, Prepare a gold reference fasta file for chimera detection, e.g.  
 
 ```bash
 wget -c  https://mothur.s3.us-east-2.amazonaws.com/wiki/silva.gold.bacteria.zip
